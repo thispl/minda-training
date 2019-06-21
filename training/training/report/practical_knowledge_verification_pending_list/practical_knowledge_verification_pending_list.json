@@ -1,0 +1,27 @@
+{
+ "add_total_row": 0, 
+ "apply_user_permissions": 1, 
+ "creation": "2019-05-06 13:12:41.281004", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "letter_head": "Assy", 
+ "modified": "2019-05-06 15:05:36.027456", 
+ "modified_by": "Administrator", 
+ "module": "Training", 
+ "name": "Practical Knowledge Verification Pending List", 
+ "owner": "Administrator", 
+ "ref_doctype": "New Joinees Practical Knowledge Verification", 
+ "report_name": "Practical Knowledge Verification Pending List", 
+ "report_type": "Script Report", 
+ "roles": [
+  {
+   "role": "System Manager"
+  }, 
+  {
+   "role": "Training Manager"
+  }
+ ]
+}
