@@ -1426,7 +1426,11 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
+<<<<<<< HEAD
  "modified": "2019-10-22 17:26:05.543338", 
+=======
+ "modified": "2019-10-22 17:13:24.568419", 
+>>>>>>> 9a06486b653541f0016125f7afb618d87ccec465
  "modified_by": "Administrator", 
  "module": "Training", 
  "name": "Selection Test", 
