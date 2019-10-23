@@ -1,0 +1,22 @@
+{
+ "align_labels_right": 0, 
+ "creation": "2019-10-21 15:40:14.517998", 
+ "custom_format": 1, 
+ "disabled": 0, 
+ "doc_type": "Color Blindness Test", 
+ "docstatus": 0, 
+ "doctype": "Print Format", 
+ "font": "Default", 
+ "html": "<div class=\"container\">\n<div class=\"row\">\n<div class=\"col-xs-10\">\n<table class = \"table table-bordered\" border=\"1\">\n<tr>\n<td colspan=\"10\"><b><center>Colour Blindness Test Paper</center></b></td>\n</tr>\n<tr>\n<td colspan=\"6\"><b><left>Name:</left></b>{{doc.name_of_associate}}</td>\n<td colspan=\"4\"><b><left>Date:</left></b></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b><center>Colour Plate No.</center></b></td>\n<td colspan=\"4\"><b><center>Actual Answer </center></b></td>\n<td colspan=\"4\"><b><center>Plate Result( \u221a / X )</center></b></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>1</b></td>\n<td colspan=\"4\">{{doc.sopans1}}</td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>2</b></td>\n<td colspan=\"4\">{{doc.sopans2}}</td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>3</b></td>\n<td colspan=\"4\">{{doc.sopans3}}</td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>4</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>5</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>6</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>7</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>8</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>9</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>10</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>11</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr><tr>\n<tr>\n<td colspan=\"2\"><b>12</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>13</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr><tr>\n<td colspan=\"2\"><b>14</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>15</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>16</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"2\"><b>17</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr><tr>\n<td colspan=\"2\"><b>18</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr><tr>\n<td colspan=\"2\"><b>19</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr><tr>\n<td colspan=\"2\"><b>20</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<td colspan=\"2\"><b>21</b></td>\n<td colspan=\"4\"></td>\n<td colspan=\"4\"></td>\n</tr>\n<tr>\n<td colspan=\"10\"><center><b>Result</b></center></td>\n</tr>\n<tr>\n<td colspan=\"6\"><b><center>Over All Result (Pass/ Fail)</center></b></td>\n<td colspan=\"6\"><b></b></td>\n</tr>\n<tr>\n<td colspan=\"10\"><left><b>Signature (Training Cell)</b></left></td>\n</tr>\n</table>\n</div>\n</div>\n</div>", 
+ "idx": 0, 
+ "line_breaks": 0, 
+ "modified": "2019-10-22 14:42:07.247893", 
+ "modified_by": "Administrator", 
+ "module": "Training", 
+ "name": "Color Blindness Test", 
+ "owner": "Administrator", 
+ "print_format_builder": 0, 
+ "print_format_type": "Server", 
+ "show_section_headings": 0, 
+ "standard": "Yes"
+}
