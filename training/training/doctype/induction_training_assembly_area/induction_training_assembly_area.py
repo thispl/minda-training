@@ -5,6 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
+from frappe.utils import add_days,today
 
 class InductionTrainingAssemblyArea(Document):
     def autoname(self):
@@ -28,7 +29,8 @@ def update_apms(employee_code,associate,status,shift,line_name,date_of_joining):
         "status": status,
         "shift": shift,
         "line_name": line_name,
-        "date_of_joining": date_of_joining
+        "date_of_joining": date_of_joining,
+        "handover_date": add_days(today(),1)
         })
         exist_cq.save(ignore_permissions=True)
         frappe.db.commit()

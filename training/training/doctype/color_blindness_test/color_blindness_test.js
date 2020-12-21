@@ -2,8 +2,164 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Color Blindness Test", {
+    employee_code: function (frm) {
+        frappe.call({
+            "method": "frappe.client.get",
+            args: {
+                "doctype": "Employee",
+                "name": frm.doc.employee_code
+            },
+            callback: function (r) {
+                frm.set_value("status", r.message.status)
+                frm.set_value("date_of_joining", r.message.date_of_joining)
+            }
+        })
+    },
+    date_of_evaluation: function (frm) {
+        if (frm.doc.date_of_evaluation) {
+            var c = frappe.datetime.get_diff(frappe.datetime.nowdate(), frm.doc.date_of_evaluation)
+            if (c < 0) {
+                frappe.msgprint({
+                    title: __('Notification'),
+                    indicator: 'red',
+                    message: __('Date of Evaluation Cannot be Future Date')
+                })
+                frm.set_value("date_of_evaluation","")
+            }
+        }
+    },
+    refresh(frm){
+        $(cur_frm.fields_dict.sop11.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop12.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop13.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop21.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop22.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop23.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop31.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop32.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop33.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop41.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop42.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop43.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop51.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop52.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop53.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop61.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop62.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop63.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop71.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop72.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop73.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop81.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop82.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop83.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop91.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop92.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop93.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop101.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop102.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop103.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop111.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop112.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop113.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop121.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop122.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop123.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop131.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop132.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop133.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop141.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop142.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop143.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop151.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop152.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop153.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop161.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop162.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop163.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop171.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop172.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop173.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop181.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop182.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop183.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop191.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop192.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop193.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop201.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop202.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop203.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop211.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop212.input).css("zoom", "2");
+        $(cur_frm.fields_dict.sop213.input).css("zoom", "2");
+
+        $(cur_frm.fields_dict.sop11.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop12.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop13.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop21.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop22.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop23.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop31.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop32.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop33.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop41.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop42.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop43.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop51.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop52.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop53.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop61.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop62.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop63.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop71.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop72.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop73.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop81.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop82.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop83.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop91.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop92.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop93.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop101.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop102.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop103.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop111.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop112.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop113.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop121.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop122.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop123.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop131.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop132.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop133.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop141.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop142.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop143.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop151.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop152.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop153.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop161.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop162.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop163.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop171.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop172.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop173.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop181.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop182.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop183.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop191.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop192.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop193.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop201.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop202.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop203.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop211.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop212.input).css("borderColor", "blue");
+        $(cur_frm.fields_dict.sop213.input).css("borderColor", "blue");
+        
+    },
     onload: function (frm) {
-        hide_field(["plate2", "plate3", "plate4", "plate5", "plate6", "plate7", "plate8", "plate9", "plate10", "plate11", "plate12", "plate13", "plate14", "plate15", "plate16", "plate17", "plate18", "plate19", "plate20", "plate21", "plate22", "plate23", "plate24", "plate25", "plate26", "plate27", "plate28", "plate29", "plate30", "plate31", "plate32", "plate33", "plate34", "plate35", "plate36", "plate37", "plate38"])
+        hide_field(["plate2", "plate3", "plate4", "plate5", "plate6", "plate7", "plate8", "plate9", "plate10", "plate11", "plate12", "plate13", "plate14", "plate15", "plate16", "plate17", "plate18", "plate19", "plate20", "plate21"])
     },
     sop11: function (frm) {
         frm.set_value("sopans1", 14);
@@ -136,10 +292,10 @@ frappe.ui.form.on("Color Blindness Test", {
         unhide_field("plate11")
     },
     sop111: function (frm) {
-        frm.set_value("sopans11", "6");
+        frm.set_value("sopans11", "26");
     },
     sop112: function (frm) {
-        frm.set_value("sopans11", "8");
+        frm.set_value("sopans11", "6");
     },
     sop113: function (frm) {
         frm.set_value("sopans11", "2");
@@ -275,355 +431,107 @@ frappe.ui.form.on("Color Blindness Test", {
         frm.set_value("sopans21", "54");
     },
     sopans21: function (frm) {
-        hide_field("plate21")
-        unhide_field("plate22")
+        hide_field(["plate21", "plate1"])
     },
-    sop221: function (frm) {
-        frm.set_value("sopans22", "6");
-    },
-    sop222: function (frm) {
-        frm.set_value("sopans22", "2");
-    },
-    sop223: function (frm) {
-        frm.set_value("sopans22", "26");
-    },
-    sopans22: function (frm) {
-        hide_field("plate22")
-        unhide_field("plate23")
-    },
-    sop231: function (frm) {
-        frm.set_value("sopans23", "2");
-    },
-    sop232: function (frm) {
-        frm.set_value("sopans23", "42");
-    },
-    sop233: function (frm) {
-        frm.set_value("sopans23", "4");
-    },
-    sopans23: function (frm) {
-        hide_field("plate23")
-        unhide_field("plate24")
-    },
-    sop241: function (frm) {
-        frm.set_value("sopans24", "35");
-    },
-    sop242: function (frm) {
-        frm.set_value("sopans24", "5");
-    },
-    sop243: function (frm) {
-        frm.set_value("sopans24", "3");
-    },
-    sopans24: function (frm) {
-        hide_field("plate24")
-        unhide_field("plate25")
-    },
-    sop251: function (frm) {
-        frm.set_value("sopans25", "9");
-    },
-    sop252: function (frm) {
-        frm.set_value("sopans25", "6");
-    },
-    sop253: function (frm) {
-        frm.set_value("sopans25", "96");
-    },
-    sopans25: function (frm) {
-        hide_field("plate25")
-        unhide_field("plate26")
-    },
-    sop261: function (frm) {
-        frm.set_value("sopans26", "nothing");
-    },
-    sop262: function (frm) {
-        frm.set_value("sopans26", "only the purple line");
-    },
-    sop263: function (frm) {
-        frm.set_value("sopans26", "26");
-    },
-    sopans26: function (frm) {
-        hide_field("plate26")
-        unhide_field("plate27")
-    },
-    sop271: function (frm) {
-        frm.set_value("sopans27", "only the red line");
-    },
-    sop272: function (frm) {
-        frm.set_value("sopans27", "only purple & red spot");
-    },
-    sop273: function (frm) {
-        frm.set_value("sopans27", "only the purple line");
-    },
-    sopans27: function (frm) {
-        hide_field("plate27")
-        unhide_field("plate28")
-    },
-    sop281: function (frm) {
-        frm.set_value("sopans28", "8");
-    },
-    sop282: function (frm) {
-        frm.set_value("sopans28", "nothing");
-    },
-    sop283: function (frm) {
-        frm.set_value("sopans28", "2");
-    },
-    sopans28: function (frm) {
-        hide_field("plate28")
-        unhide_field("plate29")
-    },
-    sop291: function (frm) {
-        frm.set_value("sopans29", "nothing");
-    },
-    sop292: function (frm) {
-        frm.set_value("sopans29", "only the red line");
-    },
-    sop293: function (frm) {
-        frm.set_value("sopans29", "only the purple line");
-    },
-    sopans29: function (frm) {
-        hide_field("plate29")
-        unhide_field("plate30")
-    },
-    sop301: function (frm) {
-        frm.set_value("sopans30", "a line green");
-    },
-    sop302: function (frm) {
-        frm.set_value("sopans30", "nothing");
-    },
-    sop303: function (frm) {
-        frm.set_value("sopans30", "blue green line");
-    },
-    sopans30: function (frm) {
-        hide_field("plate30")
-        unhide_field("plate31")
-    },
-    sop311: function (frm) {
-        frm.set_value("sopans31", "red green line");
-    },
-    sop312: function (frm) {
-        frm.set_value("sopans31", "nothing");
-    },
-    sop313: function (frm) {
-        frm.set_value("sopans31", "blue green line");
-    },
-    sopans31: function (frm) {
-        hide_field("plate31")
-        unhide_field("plate32")
-    },
-    sop321: function (frm) {
-        frm.set_value("sopans32", "orange line");
-    },
-    sop322: function (frm) {
-        frm.set_value("sopans32", "nothing");
-    },
-    sop323: function (frm) {
-        frm.set_value("sopans32", "red line");
-    },
-    sopans32: function (frm) {
-        hide_field("plate32")
-        unhide_field("plate33")
-    },
-    sop331: function (frm) {
-        frm.set_value("sopans33", "nothing");
-    },
-    sop332: function (frm) {
-        frm.set_value("sopans33", "orange line");
-    },
-    sop333: function (frm) {
-        frm.set_value("sopans33", "false line");
-    },
-    sopans33: function (frm) {
-        hide_field("plate33")
-        unhide_field("plate34")
-    },
-    sop341: function (frm) {
-        frm.set_value("sopans34", "red-green and violet line");
-    },
-    sop342: function (frm) {
-        frm.set_value("sopans34", "blue-red line");
-    },
-    sop343: function (frm) {
-        frm.set_value("sopans34", "blue-green and yellow-green line");
-    },
-    sopans34: function (frm) {
-        hide_field("plate34")
-        unhide_field("plate35")
-    },
-    sop351: function (frm) {
-        frm.set_value("sopans35", "blue-green and yellow-green line");
-    },
-    sop352: function (frm) {
-        frm.set_value("sopans35", "blue-green and violet");
-    },
-    sop353: function (frm) {
-        frm.set_value("sopans35", "nothing");
-    },
-    sopans35: function (frm) {
-        hide_field("plate35")
-        unhide_field("plate36")
-    },
-    sop361: function (frm) {
-        frm.set_value("sopans36", "blue-green & violet line");
-    },
-    sop362: function (frm) {
-        frm.set_value("sopans36", "nothing");
-    },
-    sop363: function (frm) {
-        frm.set_value("sopans36", "violet & orange line");
-    },
-    sopans36: function (frm) {
-        hide_field("plate36")
-        unhide_field("plate37")
-    },
-    sop371: function (frm) {
-        frm.set_value("sopans37", "nothing");
-    },
-    sop372: function (frm) {
-        frm.set_value("sopans37", "blue-green and violet");
-    },
-    sop373: function (frm) {
-        frm.set_value("sopans37", "violet and orange line");
-    },
-    sopans37: function (frm) {
-        hide_field("plate37")
-        unhide_field("plate38")
-    },
-    sop381: function (frm) {
-        frm.set_value("sopans38", "nothing");
-    },
-    sop382: function (frm) {
-        frm.set_value("sopans38", "Everyone should see the same (red) line");
-    },
-    sop383: function (frm) {
-        frm.set_value("sopans38", "see the same (green) line");
-    },
-    sopans38: function (frm) {
-        hide_field("plate38")
-        hide_field("plate1")
-    },
+
     validate: function (frm) {
         var score = 0;
         if (frm.doc.sopans1 == '12') {
             score += 1
+            frm.set_value("checkans1", 1)
         }
         if (frm.doc.sopans2 == '8') {
             score += 1
+            frm.set_value("checkans2", 1)
         }
         if (frm.doc.sopans3 == '6') {
             score += 1
+            frm.set_value("checkans3", 1)
         }
         if (frm.doc.sopans4 == '29') {
             score += 1
+            frm.set_value("checkans4", 1)
         }
         if (frm.doc.sopans5 == '57') {
             score += 1
+            frm.set_value("checkans5", 1)
         }
         if (frm.doc.sopans6 == '5') {
             score += 1
+            frm.set_value("checkans6", 1)
         }
         if (frm.doc.sopans7 == '3') {
             score += 1
+            frm.set_value("checkans7", 1)
         }
         if (frm.doc.sopans8 == '15') {
             score += 1
+            frm.set_value("checkans8", 1)
         }
         if (frm.doc.sopans9 == '74') {
             score += 1
+            frm.set_value("checkans9", 1)
         }
         if (frm.doc.sopans10 == '2') {
             score += 1
+            frm.set_value("checkans10", 1)
         }
         if (frm.doc.sopans11 == '6') {
             score += 1
+            frm.set_value("checkans11", 1)
         }
         if (frm.doc.sopans12 == '97') {
             score += 1
+            frm.set_value("checkans12", 1)
         }
         if (frm.doc.sopans13 == '45') {
             score += 1
+            frm.set_value("checkans13", 1)
         }
         if (frm.doc.sopans14 == '5') {
             score += 1
+            frm.set_value("checkans14", 1)
         }
         if (frm.doc.sopans15 == '7') {
             score += 1
+            frm.set_value("checkans15", 1)
         }
         if (frm.doc.sopans16 == '16') {
             score += 1
+            frm.set_value("checkans16", 1)
         }
         if (frm.doc.sopans17 == '73') {
             score += 1
+            frm.set_value("checkans17", 1)
         }
-        if (frm.doc.sopans18 == 'nothing ') {
+        if (frm.doc.sopans18 == 'nothing') {
             score += 1
+            frm.set_value("checkans18", 1)
         }
         if (frm.doc.sopans19 == 'nothing') {
             score += 1
+            frm.set_value("checkans19", 1)
         }
         if (frm.doc.sopans20 == 'nothing') {
             score += 1
+            frm.set_value("checkans20", 1)
         }
         if (frm.doc.sopans21 == 'nothing') {
             score += 1
+            frm.set_value("checkans21", 1)
         }
-        if (frm.doc.sopans22 == '26') {
-            score += 1
-        }
-        if (frm.doc.sopans23 == '42') {
-            score += 1
-        }
-        if (frm.doc.sopans24 == '35') {
-            score += 1
-        }
-        if (frm.doc.sopans25 == '96') {
-            score += 1
-        }
-        if (frm.doc.sopans26 == 'nothing') {
-            score += 1
-        }
-        if (frm.doc.sopans27 == 'only purple & red spot') {
-            score += 1
-        } if (frm.doc.sopans28 == 'nothing ') {
-            score += 1
-        } if (frm.doc.sopans29 == 'nothing') {
-            score += 1
-        }
-        if (frm.doc.sopans30 == 'blue green line') {
-            score += 1
-        }
-        if (frm.doc.sopans31 == 'blue green line') {
-            score += 1
-        }
-        if (frm.doc.sopans32 == 'orange line') {
-            score += 1
-        }
-        if (frm.doc.sopans33 == 'orange line') {
-            score += 1
-        }
-        if (frm.doc.sopans34 == 'blue-green and yellow-green line') {
-            score += 1
-        }
-        if (frm.doc.sopans35 == 'blue-green and yellow-green line') {
-            score += 1
-        }
-        if (frm.doc.sopans36 == 'violet & orange line') {
-            score += 1
-        }
-        if (frm.doc.sopans37 == 'violet and orange line') {
-            score += 1
-        }
-        if (frm.doc.sopans38 == 'Everyone should see the same (red) line') {
-            score += 1
-        }
-        frm.set_value('total_score',score)
+        hide_field("plate1")
+        frm.set_value('total_score', score)
     },
-    total_score:function(frm){
-        if(frm.doc.total_score > 17){
-            frm.set_value('result','Can Consider for Work')
+    total_score: function (frm) {
+        if (frm.doc.total_score > 17) {
+            frm.set_value('result', 'Fit for any Job')
         }
-        else if(frm.doc.total_score > 14 && frm.doc.total_score < 16){
-            frm.set_value('result','Conditionaly Accepted')
+        else if (frm.doc.total_score > 14 && frm.doc.total_score < 16) {
+            frm.set_value('result', 'Conditionaly Accepted')
         }
-        else{
-            frm.set_value('result','Not fit for Work')
+        else {
+            frm.set_value('result', 'Not fit for Work')
         }
         frm.save();
     }

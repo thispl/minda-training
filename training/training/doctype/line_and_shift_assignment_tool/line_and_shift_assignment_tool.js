@@ -21,12 +21,12 @@ frappe.ui.form.on('Line and Shift Assignment Tool', {
         }
     },
     shift_assign: function(frm){
-        if(frm.doc.new_line){
+        if(frm.doc.new_shift){
             frappe.call({
                 "method": "training.training.doctype.line_and_shift_assignment_tool.line_and_shift_assignment_tool.assign_shift",
                 args:{
                     "employee": frm.doc.employee,
-                    "line": frm.doc.new_line,
+                    "shift": frm.doc.new_shift,
                     "date_of_assign": frm.doc.date_of_assign
                 },
                 callback: function(frm){
@@ -50,5 +50,8 @@ frappe.ui.form.on('Line and Shift Assignment Tool', {
                 }
             })
         }
+    },
+    back:function(frm){
+        frappe.set_route("query-report","New Joinees Details",{"date_of_joining": frm.doc.date_of_joining});
     }
 });

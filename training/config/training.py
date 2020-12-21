@@ -44,6 +44,11 @@ def get_data():
                 "items": [
                     {
                         "type": "doctype",
+                        "name": "Associate Performance Monitoring",
+                        "description": _("Associate Performance Monitoring"),
+                    },
+                    {
+                        "type": "doctype",
                         "name": "Associate Performance Monitoring Check Sheet",
                         "description": _("Associate Performance Monitoring Check Sheet"),
                     },
@@ -54,8 +59,8 @@ def get_data():
                     },
                     {
                         "type": "doctype",
-                        "name": "Employee Details Tracking Sheet",
-                        "description": _("Employee Details Tracking Sheet"),
+                        "name": "Employee Performance Summary Report",
+                        "description": _("Employee Performance Summary Report"),
                     }
                 ]
             },
@@ -64,13 +69,18 @@ def get_data():
                 "items": [
                     {
                         "type": "doctype",
-                        "name": "New Joinees Practical Knowledge Verification",
-                        "description": _("New Joinees Practical Knowledge Verification"),
+                        "name": "Color Blindness Test",
+                        "description": _("Color Blindness Test"),
                     },
                     {
                         "type": "doctype",
                         "name": "Selection Test",
                         "description": _("Selection Test"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "New Joinees Practical Knowledge Verification",
+                        "description": _("New Joinees Practical Knowledge Verification"),
                     },
                     {
                         "type": "doctype",
@@ -170,6 +180,11 @@ def get_data():
             {
                 "label": _("Monitoring Sheets"),
                 "items": [
+                     {
+                        "type": "doctype",
+                        "name": "Associate Performance Monitoring",
+                        "description": _("Associate Performance Monitoring"),
+                    },
                     {
                         "type": "doctype",
                         "name": "Associate Performance Monitoring Check Sheet",
@@ -182,8 +197,8 @@ def get_data():
                     },
                     {
                         "type": "doctype",
-                        "name": "Employee Details Tracking Sheet",
-                        "description": _("Employee Details Tracking Sheet"),
+                        "name": "Employee Performance Summary Report",
+                        "description": _("Employee Performance Summary Report"),
                     }
                 ]
             },
@@ -192,13 +207,18 @@ def get_data():
                 "items": [
                     {
                         "type": "doctype",
-                        "name": "New Joinees Practical Knowledge Verification",
-                        "description": _("New Joinees Practical Knowledge Verification"),
+                        "name": "Color Blindness Test",
+                        "description": _("Color Blindness Test"),
                     },
                     {
                         "type": "doctype",
                         "name": "Selection Test",
                         "description": _("Selection Test"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "New Joinees Practical Knowledge Verification",
+                        "description": _("New Joinees Practical Knowledge Verification"),
                     },
                     {
                         "type": "doctype",
@@ -301,6 +321,11 @@ def get_data():
                 "items": [
                     {
                         "type": "doctype",
+                        "name": "Associate Performance Monitoring",
+                        "description": _("Associate Performance Monitoring Tool"),
+                    },
+                    {
+                        "type": "doctype",
                         "name": "Associate Performance Monitoring Check Sheet",
                         "description": _("Associate Performance Monitoring Check Sheet"),
                     },
@@ -311,8 +336,8 @@ def get_data():
                     },
                     {
                         "type": "doctype",
-                        "name": "Employee Details Tracking Sheet",
-                        "description": _("Employee Details Tracking Sheet"),
+                        "name": "Employee Performance Summary Report",
+                        "description": _("Employee Performance Summary Report"),
                     }
                 ]
             },

@@ -21,6 +21,13 @@ def assign_line(employee,line,date_of_assign):
         })
         doc.save(ignore_permissions=True)
         frappe.db.commit()
+        frappe.db.set_value('Selection Test',employee,'line_name',line)
+        # frappe.db.set_value('Color Blindness Test',employee,'line_name',line)
+        frappe.db.set_value('New Joinees Practical Knowledge Verification',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Assembly Area',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Machine Area Crimping',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Machine Area Operator',employee,'line_name',line)
+        frappe.db.set_value('Associate Performance Monitoring Check Sheet',employee,'line_name',line)
         if frappe.db.exists("Line and Shift Assignment Details", {
                                         "employee":employee,"date_of_assign":date_of_assign}):
             lsa = frappe.db.get_value("Line and Shift Assignment Details", {
@@ -51,12 +58,17 @@ def assign_line(employee,line,date_of_assign):
 def assign_shift(employee,shift,date_of_assign):
     if shift:
         doc= frappe.get_doc("Employee",employee)
-        # frappe.errprint(line)
         doc.update({
             "shift":shift
         })
         doc.save(ignore_permissions=True)
         frappe.db.commit()
+        frappe.db.set_value('Selection Test',employee,'shift',shift)
+        # frappe.db.set_value('Color Blindness Test',employee,'shift',shift)
+        frappe.db.set_value('New Joinees Practical Knowledge Verification',employee,'shift',shift)
+        frappe.db.set_value('Induction Training Assembly Area',employee,'shift',shift)
+        frappe.db.set_value('Induction Training Machine Area Operator',employee,'shift',shift)
+        frappe.db.set_value('Associate Performance Monitoring Check Sheet',employee,'shift',shift)
         if frappe.db.exists("Line and Shift Assignment Details", {
                                         "employee":employee,"date_of_assign":date_of_assign}):
             lsa = frappe.db.get_value("Line and Shift Assignment Details", {
@@ -94,6 +106,18 @@ def assign_shift_and_line(employee,line,shift,date_of_assign):
         })
         doc.save(ignore_permissions=True)
         frappe.db.commit()
+        frappe.db.set_value('Selection Test',employee,'line_name',line)
+        # frappe.db.set_value('Color Blindness Test',employee,'line_name',line)
+        frappe.db.set_value('New Joinees Practical Knowledge Verification',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Assembly Area',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Machine Area Crimping',employee,'line_name',line)
+        frappe.db.set_value('Induction Training Machine Area Operator',employee,'line_name',line)
+        frappe.db.set_value('Selection Test',employee,'shift',line)
+        # frappe.db.set_value('Color Blindness Test',employee,'shift',line)
+        frappe.db.set_value('New Joinees Practical Knowledge Verification',employee,'shift',shift)
+        frappe.db.set_value('Induction Training Assembly Area',employee,'shift',shift)
+        frappe.db.set_value('Induction Training Machine Area Crimping',employee,'shift',shift)
+        frappe.db.set_value('Induction Training Machine Area Operator',employee,'shift',shift)
         if frappe.db.exists("Line and Shift Assignment Details", {
                                         "employee":employee,"date_of_assign":date_of_assign}):
             lsa = frappe.db.get_value("Line and Shift Assignment Details", {
