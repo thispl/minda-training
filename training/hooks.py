@@ -90,13 +90,17 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"training.tasks.all"
 # 	],
-# 	"daily": [
-# 		"training.tasks.daily"
-# 	],
+	"daily": [
+		"training.training.doctype.auto_cutting_and_crimping_marks.auto_cutting_and_crimping_marks.send_remainder",
+		"training.training.doctype.semi_auto_crimping_marks.semi_auto_crimping_marks.send_remainder",
+		"training.training.doctype.assembly_evaluation_marks.assembly_evaluation_marks.send_remainder",
+		"training.training.doctype.quality_evaluation_marks.quality_evaluation_marks.send_remainder"      
+        
+	],
 # 	"hourly": [
 # 		"training.tasks.hourly"
 # 	],
@@ -106,7 +110,7 @@ app_license = "MIT"
 # 	"monthly": [
 # 		"training.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------

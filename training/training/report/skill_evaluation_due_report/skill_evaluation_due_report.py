@@ -9,6 +9,7 @@ from calendar import monthrange
 from datetime import datetime,timedelta,date
 from frappe.utils import add_days, add_months,get_first_day,get_last_day
 from dateutil.rrule import * 
+import json
 
 def execute(filters=None):
     if not filters:
@@ -23,11 +24,14 @@ def execute(filters=None):
         start_date = filters.get("start_date")
         month_start = get_first_day(start_date)
         from_date = add_months(month_start,-3)
-        frappe.errprint(month_start)
-        frappe.errprint(from_date)
+        # frappe.errprint(month_start)
+        # frappe.errprint(from_date)
         row = [e.biometric_id,e.employee_name,e.date_of_joining,e.status]
         # att = att_details(e.biometric_id)
-        acc = ita_details(e.biometric_id)
+        acc = acc_details(e.biometric_id,from_date)
+        sac = sac_details(e.biometric_id,from_date)
+        ae = ae_details(e.biometric_id,from_date)
+        qe = qe_details(e.biometric_id,from_date)        
         # itm = itm_details(e.biometric_id)
         # st = st_details(e.biometric_id)
         # cb = cb_details(e.biometric_id)
@@ -37,19 +41,26 @@ def execute(filters=None):
             row += ["Pending"]
         else:
             row += [e.line]
-        if e.shift not in ["A","B","C","G"]:
-            row += ["Pending"]
+        # if e.shift not in ["A","B","C","G"]:
+        #     row += ["Pending"]
+        # else:
+        #     row += [e.shift]
+        if acc:
+            row += ["Completed"]
         else:
-            row += [e.shift]
-        # if att == 1:
-        #     row += ["Active"]
-        # else:
-        #     row += ["Continuous Absent"]
-
-        # if st == 1:            
-            # row += ["Completed"]
-        # else:
-            # row += ["Pending"]
+            row += ["Pending"]
+        if sac == 1:            
+            row += ["Completed"]
+        else:
+            row += ["Pending"]
+        if ae == 1:            
+            row += ["Completed"]
+        else:
+            row += ["Pending"]
+        if qe == 1:            
+            row += ["Completed"]
+        else:
+            row += ["Pending"]
         # if e.department not in ["HR", "Accounts","Finance & Accounts","Purchase"]:
             # if pk == 1:
                 # row += ["Completed"]
@@ -67,10 +78,7 @@ def execute(filters=None):
         # else:
             # row += ["NA"]
         data.append(row)
-    return columns, data
-# 
-# 
-# 
+    return columns, data 
 
 def get_columns():
     columns = [
@@ -79,11 +87,11 @@ def get_columns():
         _("Date of Joining") + ":Date:100",
         _("Status") + ":Select:100",
         _("Line") + ":Link/Line:100",
-        _("Shift") + ":Link/Shift:100",
-        _("Auto Cutting and Crimping") + ":Link/Auto Cutting and Crimping:100"
-        # _("Selection Test") + ":Link/Selection Test:100",
-        # _("Practical Knowledge Verification") + ":Link/New Joinees Practical Knowledge Verification:100",
-        # _("Induction Test Assy") + ":Link/Induction Training Assembly Area:100",
+        # _("Shift") + ":Link/Shift:100",
+        _("Auto Cutting and Crimping") + ":Link/Auto Cutting and Crimping:200",
+        _("Semi Auto Crimping") + ":Link/Semi Auto Crimping:200",
+        _("Assembly Evaluation") + ":Link/Assembly Evaluation:150",
+        _("Quality Evaluation") + ":Link/Quality Evaluation:150"
         # _("Induction Test Machine") + ":Link/Induction Training Machine Area Crimping:100",
         
     ]
@@ -104,11 +112,39 @@ def employee_details(filters):
     # frappe.errprint(employee)
     return employee
 
-def ita_details(emp_id):
+def acc_details(emp_id,from_date):
     if emp_id:
-        ita = frappe.db.sql(
-            """select * from `tabInduction Training Assembly Area` where employee_code=%s """,(emp_id),as_dict = 1)
-        if ita:
+        acc = frappe.db.sql(
+            """select name from `tabAuto Cutting and Crimping` where employee_code=%s and date_of_skill_evaluatation >= %s """,(emp_id,from_date))
+        if acc:
+            return True
+        else:
+            return False
+
+def sac_details(emp_id,from_date):
+    if emp_id:
+        sac = frappe.db.sql(
+            """select name from `tabSemi Auto Crimping` where employee_code=%s and date_of_skill_evaluatation >= %s """,(emp_id,from_date))
+        if sac:
+            return True
+        else:
+            return False
+
+def ae_details(emp_id,from_date):
+    if emp_id:
+        ae = frappe.db.sql(
+            """select name from `tabAssembly Evaluation` where employee_code=%s and date_of_skill_evaluatation >= %s """,(emp_id,from_date))
+        if ae:
+            return True
+        else:
+            return False
+
+def qe_details(emp_id,from_date):
+    if emp_id:
+        qe = frappe.db.sql(
+            """select name from `tabQuality Evaluation` where employee_code=%s and date_of_skill_evaluatation >= %s """,(emp_id,from_date))
+        if qe:
+            frappe.errprint(qe)
             return True
         else:
             return False

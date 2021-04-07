@@ -2001,6 +2001,17 @@ frappe.ui.form.on('Semi Auto Crimping', {
     },
    
     validate:function(frm){
+        if (frm.doc.__islocal) {
+            frm.set_value("is_latest",1)
+            frappe.call({
+                method: "training.training.doctype.semi_auto_crimping.semi_auto_crimping.update_latest",
+                args: {
+                    "emp": frm.doc.employee_code
+                },
+                callback: function (r) {
+                }
+            })
+        }
         if(!frm.doc.choose_question_filter){
             frappe.call({
                 "method":"minda_custom.minda_custom.doctype.semi_auto_crimping.semi_auto_crimping.update_choose_question",

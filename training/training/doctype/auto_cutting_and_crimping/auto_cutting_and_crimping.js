@@ -2002,6 +2002,17 @@ frappe.ui.form.on('Auto Cutting and Crimping', {
         frm.trigger("onload_post_render");
     },
     validate:function(frm){
+            if (frm.doc.__islocal) {
+                frm.set_value("is_latest",1)
+                frappe.call({
+                    method: "training.training.doctype.auto_cutting_and_crimping.auto_cutting_and_crimping.update_latest",
+                    args: {
+                        "emp": frm.doc.employee_code
+                    },
+                    callback: function (r) {
+                    }
+                })
+            }
         frm.trigger("onload_post_render");
         if((frm.doc.iws) || (frm.doc.wslm)|| (frm.doc.tcsch)|| (frm.doc.chslc)|| (frm.doc.iwc)|| (frm.doc.mi) || (frm.doc.si)){
         frm.set_value("mark_obtained_a", flt(frm.doc.iws)+flt(frm.doc.wslm)+flt(frm.doc.tcsch)+flt(frm.doc.chslc)+flt(frm.doc.iwc)+flt(frm.doc.mi)+flt(frm.doc.si));

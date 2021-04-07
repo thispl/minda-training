@@ -69,15 +69,22 @@ frappe.query_reports["Pending List KVS"] = {
         frappe.set_route("Form","KVS Type Assignment","New KVS Type Assignment",{"employee": data["Employee"]});       
     },
     "open_att_adjust1": function (data) {
-
-        frappe.set_route("Form",data['KVS Type']+" Training Observation","New "+data['KVS Type']+" Training Observation",{"employee_code": data["Employee"]});       
+        // frappe.set_route("Form",data['KVS Type']+" Training Observation","New "+data['KVS Type']+" Training Observation",{"employee_code": data["Employee"]});
+        var pp = frappe.model.make_new_doc_and_get_name(data['KVS Type']+" Training Observation");
+        pp = locals[data['KVS Type']+" Training Observation"][pp];
+        pp.employee_code = data["Employee"]
+        frappe.set_route("Form",data['KVS Type']+" Training Observation",pp.name)
     },
     "open_att_adjust2": function (data) {
-        console.log("hi")
-        frappe.set_route("Form",data['KVS Type']+" Production Observation","New "+data['KVS Type']+" Production Observation",{"employee_code": data["Employee"]});       
+        var pp = frappe.model.make_new_doc_and_get_name(data['KVS Type']+" Production Observation");
+        pp = locals[data['KVS Type']+" Production Observation"][pp];
+        pp.employee_code = data["Employee"]
+        frappe.set_route("Form",data['KVS Type']+" Production Observation",pp.name)
     },
     "open_att_adjust3": function (data) {
-       
-        frappe.set_route("Form",data['KVS Type']+" Quality Observation","New "+data['KVS Type']+" Quality Observation",{"employee_code": data["Employee"]});       
+        var pp = frappe.model.make_new_doc_and_get_name(data['KVS Type']+" Quality Observation");
+        pp = locals[data['KVS Type']+" Quality Observation"][pp];
+        pp.employee_code = data["Employee"]
+        frappe.set_route("Form",data['KVS Type']+" Quality Observation",pp.name)
     },
 }

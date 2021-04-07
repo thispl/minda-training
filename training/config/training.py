@@ -147,6 +147,39 @@ def get_data():
                         "name": "Line and Shift Assignment Details",
                         "description": _("Line and Shift Assignment Details"),
                     },
+                    {
+                        "type": "report",
+                        "is_query_report": True,
+                        "name": "Skill Evaluation Due Report",
+                        "label": _("Skill Evaluation Due Report"),
+                        "description": _("Skill Evaluation Due Report")
+                        # "doctype": "New Joinees Practical Knowledge Verification"
+                    }
+                ]
+            },
+             {
+                "label": _("Supervisor Evaluation Marks"),
+                "items": [
+                     {
+                        "type": "doctype",
+                        "name": "Auto Cutting and Crimping Marks",
+                        "description": _("Auto Cutting and Crimping Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Semi Auto Crimping Marks",
+                        "description": _("Semi Auto Crimping Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Assembly Evaluation Marks",
+                        "description": _("Assembly Evaluation Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Quality Evaluation Marks",
+                        "description": _("Quality Evaluation Marks"),
+                    },
                 ]
             },
         ]
@@ -257,7 +290,7 @@ def get_data():
                     {
                         "type": "report",
                         "is_query_report": True,
-                        "name": "Pending List KVS",
+                        "name": "Pending List KVs",
                         "label": _("Pending List KVS"),
                         "description": _("Pending List KVS"),
                         "doctype": "Employee"
@@ -265,7 +298,7 @@ def get_data():
                     {
                         "type": "report",
                         "is_query_report": True,
-                        "name": "Practical Knowledge Verification Pending List",
+                        "name": "Practical Knowledge Verificatio Pending List",
                         "label": _("Pending List Practical Knowledge Verification"),
                         "description": _("Pending List KVS"),
                         "doctype": "New Joinees Practical Knowledge Verification"
@@ -285,7 +318,39 @@ def get_data():
                         "name": "Line and Shift Assignment Details",
                         "description": _("Line and Shift Assignment Details"),
                     },
-                    
+                    {
+                        "type": "report",
+                        "is_query_report": True,
+                        "name": "Skill Evaluation Due Report",
+                        "label": _("Skill Evaluation Due Report"),
+                        "description": _("Skill Evaluation Due Report")
+                        # "doctype": "New Joinees Practical Knowledge Verification"
+                    }
+                ]
+            },
+            {
+                "label": _("Supervisor Evaluation Marks"),
+                "items": [
+                     {
+                        "type": "doctype",
+                        "name": "Auto Cutting and Crimping Marks",
+                        "description": _("Auto Cutting and Crimping Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Semi Auto Crimping Marks",
+                        "description": _("Semi Auto Crimping Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Assembly Evaluation Marks",
+                        "description": _("Assembly Evaluation Marks"),
+                    },
+                    {
+                        "type": "doctype",
+                        "name": "Quality Evaluation Marks",
+                        "description": _("Quality Evaluation Marks"),
+                    },
                 ]
             },
         ]

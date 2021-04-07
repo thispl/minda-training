@@ -11,7 +11,11 @@ class SemiAutoCrimping(Document):
 		if self.employee_code and self.month_of_evaluation:
 			self.name = self.employee_code+"-"+self.month_of_evaluation
 
-
+@frappe.whitelist()
+def update_latest(emp):
+    list1 = frappe.db.sql("select name from `tabSemi Auto Crimping` where employee_code = %s order by date_of_skill_evaluatation",emp,as_dict=True)
+    if list1:
+        frappe.db.set_value('Semi Auto Crimping',list1[-1].name,'is_latest',0)
 
 @frappe.whitelist()
 def update_choose_question(choose_question):

@@ -7,13 +7,69 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import add_months
 from frappe.utils.background_jobs import enqueue
+import json
 
 class AssemblyEvaluation(Document):
     def autoname(self):
         if self.employee_code and self.month_of_evaluation:
             self.name = self.employee_code+"-"+self.month_of_evaluation
 
+# def update():
+#     all = frappe.get_all("Semi Auto Crimping")
+#     for a in all:
+#         print(a)
+#         frappe.db.set_value('Semi Auto Crimping',a.name,'is_latest',1)
 
+@frappe.whitelist()
+def create_assembly_evaluation(frm):
+    data = json.loads(frm)
+    doc = frappe.new_doc("Assembly Evaluation")
+    doc.employee_code = data["employee_code"]
+    doc.associate = data["associate"]
+    doc.status = data["status"]
+    doc.shift = data["shift"]
+    doc.line_name = data["line_name"]
+    doc.date_of_joining = data["date_of_joining"]
+    doc.date_of_skill_evaluatation = data["date_of_skill_evaluatation"]
+    doc.month_of_evaluation = data["month_of_evaluation"]
+    doc.answer1 = data["answer1"]
+    doc.answer2 = data["answer2"]
+    doc.answer3 = data["answer3"]
+    doc.answer4 = data["answer4"]
+    doc.answer5 = data["answer5"]
+    doc.answer6 = data["answer6"]
+    doc.answer7 = data["answer7"]
+    doc.answer8 = data["answer8"]
+    doc.answer9 = data["answer9"]
+    doc.answer10 = data["answer10"]
+    doc.answer11 = data["answer11"]
+    doc.answer12 = data["answer12"]
+    doc.answer13 = data["answer13"]
+    doc.answer14 = data["answer14"]
+    doc.answer15 = data["answer15"]
+    doc.answer16 = data["answer16"]
+    doc.answer17 = data["answer17"]
+    doc.answer18 = data["answer18"]
+    doc.answer19 = data["answer19"]
+    doc.answer20 = data["answer20"]
+    doc.answer21 = data["answer21"]
+    doc.answer22 = data["answer22"]
+    doc.answer23 = data["answer23"]
+    doc.answer24 = data["answer24"]
+    doc.answer25 = data["answer25"]
+    doc.answer26 = data["answer26"]
+    doc.answer27 = data["answer27"]
+    doc.answer28 = data["answer28"]
+    doc.answer29 = data["answer29"]
+    doc.answer30 = data["answer30"]     
+    doc.save(ignore_permissions=True)
+    frappe.db.commit()
+
+@frappe.whitelist()
+def update_latest(emp):
+    list1 = frappe.db.sql("select name from `tabAssembly Evaluation` where employee_code = %s order by date_of_skill_evaluatation",emp,as_dict=True)
+    if list1:
+        frappe.db.set_value('Assembly Evaluation',list1[-1].name,'is_latest',0)
 
 @frappe.whitelist()
 def update_mis(employee,line):
