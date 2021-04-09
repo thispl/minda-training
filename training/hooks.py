@@ -123,4 +123,4 @@ scheduler_events = {
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "training.event.get_events"
 # }
-
+fixtures = ['Custom Script']
