@@ -13,7 +13,86 @@ class InductionTrainingAssemblyArea(Document):
         if self.employee_code:
             self.name = self.employee_code
 
-
+@frappe.whitelist()
+def validate_test_score(doc,method):
+        s = 0
+        if (doc.answer1 == "ஆ") :
+            s = s + 1
+        if (doc.answer2 == "ஆ") :
+            s = s + 1
+        if (doc.answer3 == "ஆ") :
+            s = s + 1
+        if (doc.answer4 == "இ") :
+            s = s + 1
+        if (doc.answer5 == "ஈ") :
+            s = s + 1
+        if (doc.answer6 in ["அ","இ"] ) :
+            s = s + 1
+        if (doc.answer7 == "அ") :
+            s = s + 1
+        if (doc.answer8 == "ஆ") :
+            s = s + 1
+        if (doc.answer9 == "ஆ") :
+            s = s + 1
+        if (doc.answer10 == "அ") :
+            s = s + 0.5
+        if (doc.answer102 == "ஈ") :
+            s = s + 0.5
+        if (doc.answer11 == "இ") :
+            s = s + 1
+        if (doc.answer12 == "அ") :
+            s = s + 1
+        if (doc.answer13 == "ஈ") :
+            s = s + 1
+        if (doc.answer14 == "ஆ") :
+            s = s + 0.3
+        if (doc.answer142 == "இ") :
+            s = s + 0.3
+        if (doc.answer143 == "அ") :
+            s = s + 0.4
+        if (doc.answer15 == "ஆ") :
+            s = s + 1
+        if (doc.answer16 == "அ") :
+            s = s + 0.5
+        if (doc.answer162 == "ஆ") :
+            s = s + 0.5
+        if (doc.answer17 == "ஈ") :
+            s = s + 1
+        if (doc.answer18 == "ஈ") :
+            s = s + 1
+        if (doc.answer19 == "அ") :
+            s = s + 1
+        if (doc.answer20 == "இ") :
+            s = s + 1
+        if (doc.answer21 == "ஈ") :
+            s = s + 1
+        if (doc.answer22 == "அ") :
+            s = s + 1
+        if (doc.answer233 == "ஆ") :
+            s = s + 0.25
+        if (doc.answer234 == "இ") :
+            s = s + 0.25
+        if (doc.answer24 == "ஈ") :
+            s = s + 1
+        if (doc.answer25 == "ஆ") :
+            s = s + 1
+        if (doc.answer26 == "இ") :
+            s = s + 1
+        if (doc.answer27 == "இ") :
+            s = s + 1
+        if (doc.answer28 == "ஆ") :
+            s = s + 1
+        if (doc.answer29 == "அ") :
+            s = s + 1
+        if (doc.answer30 == "ஆ") :
+            s = s + 0.25
+        if (doc.answer302 == "அ") :
+            s = s + 0.25
+        if (doc.answer303 == "ஈ") :
+            s = s + 0.25
+        if (doc.answer304 == "இ") :
+            s = s + 0.25
+        frappe.db.set_value("Induction Training Assembly Area",doc.name,"total_score", s)
 
 
 @frappe.whitelist()

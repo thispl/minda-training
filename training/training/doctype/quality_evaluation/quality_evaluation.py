@@ -14,13 +14,80 @@ class QualityEvaluation(Document):
 
 
 @frappe.whitelist()
+def validate_test_score(doc,method):
+    s = 0
+    if(doc.answer1=="ஈ"):
+        s=s+1
+    if(doc.answer2=="B"):
+        s=s+1
+    if(doc.answer3=="ஆ"):
+        s=s+1
+    if(doc.answer4=="ஈ"):
+        s=s+1
+    if(doc.answer5=="ஈ"):
+        s=s+1
+    if(doc.answer6=="B"):
+        s=s+1
+    if(doc.answer7=="500MM"):
+        s=s+1
+    if(doc.answer8=="அ"):
+        s=s+1
+    if(doc.answer9=="A"):
+        s=s+1
+    if(doc.answer10=="ஆ"):
+        s=s+1
+    if(doc.answer11=="அ"):
+        s=s+1
+    if(doc.answer12=="ஈ"):
+        s=s+1
+    if(doc.answer13=="அ"):
+        s=s+1
+    if(doc.answer14=="ஆ"):
+        s=s+1
+    if(doc.answer15=="அ"):
+        s=s+1
+    if(doc.answer16=="ஆ"):
+        s=s+1
+    if(doc.answer17=="அ"):
+        s=s+1
+    if(doc.answer18=="அ"):
+        s=s+1
+    if(doc.answer19=="இ"):
+        s=s+1
+    if(doc.answer20=="C"):
+        s=s+1
+    if(doc.answer21=="ஈ"):
+        s=s+1
+    if(doc.answer22=="அ"):
+        s=s+1
+    if(doc.answer23=="அ"):
+        s=s+1
+    if(doc.answer24=="ஆ"):
+        s=s+1
+    if(doc.answer25=="இ"):
+        s=s+1
+    if(doc.answer26=="அ"):
+        s=s+1
+    if(doc.answer27=="அ"):
+        s=s+1
+    if(doc.answer28=="அ"):
+        s=s+1
+    if(doc.answer29=="ஆ"):
+        s=s+1
+    if(doc.answer30=="அ"):
+        s=s+1
+    frappe.db.set_value("Quality Evaluation",doc.name,"test_score30",s)
+    frappe.db.set_value("Quality Evaluation",doc.name,"test_score",s)
+    frappe.db.set_value("Quality Evaluation",doc.name,"total_score",s)
+
+@frappe.whitelist()
 def create_quality_evaluation(frm):
     data = json.loads(frm)
     doc = frappe.new_doc("Quality Evaluation")
     doc.employee_code = data["employee_code"]
     doc.associate = data["associate"]
     doc.status = data["status"]
-    doc.shift = data["shift"]
+    doc.shift = data["shift"] or ''
     doc.line_name = data["line_name"]
     doc.date_of_joining = data["date_of_joining"]
     doc.date_of_skill_evaluatation = data["date_of_skill_evaluatation"]

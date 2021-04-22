@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019, Ramya and contributors
 # For license information, please see license.txt
@@ -13,13 +14,54 @@ class SelectionTest(Document):
             self.name = self.employee_code
 
 @frappe.whitelist()
+def validate_test_score(doc,method):
+    s = 0
+    if (doc.answer1 == "A") :
+        s = s + 1
+    if (doc.answer2 == "B") :
+        s = s + 1
+    if (doc.answer3 == "இ") :
+        s = s + 1
+    if (doc.answer4 == "அ") :
+        s = s + 0.5
+    if (doc.answer41 == "ஆ") :
+        s = s + 0.5
+    if (doc.answer5 == "அ") :
+        s = s + 0.5
+    if (doc.answer51 == "ஆ") :
+        s = s + 0.5
+    if (doc.answer14 == "அ") :
+        s = s + 1
+    if (doc.answer15 == "அ") :
+        s = s + 1
+    if (doc.answer6 == "அ") :
+        s = s + 0.5
+    if (doc.answer61 == "இ") :
+        s = s + 0.5
+    if (doc.answer7 == "அ") :
+        s = s + 1
+    if (doc.answer8 == "அ") :
+        s = s + 1
+    if (doc.answer9 == "இ") :
+        s = s + 1
+    if (doc.answer10 == "இ") :
+        s = s + 1
+    if (doc.answer11 == "இ") :
+        s = s + 1
+    if (doc.answer12 == "ஈ") :
+        s = s + 1
+    if (doc.answer13 == "இ") :
+        s = s + 1
+    frappe.db.set_value("Selection Test",doc.name,"total_score",s)
+
+@frappe.whitelist()
 def create_selection_test(frm):
     data = json.loads(frm)
     doc = frappe.new_doc("Selection Test")
     doc.employee_code = data["employee_code"]
     doc.associate = data["associate"]
     doc.status = data["status"]
-    doc.shift = data["shift"]
+    doc.shift = data["shift"] or ''
     doc.line_name = data["line_name"]
     doc.date_of_joining = data["date_of_joining"]
     doc.date_of_skill_evaluatation = data["date_of_skill_evaluatation"]

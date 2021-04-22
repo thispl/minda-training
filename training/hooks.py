@@ -79,13 +79,20 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Assembly Evaluation": {
+		"after_insert": "training.training.doctype.assembly_evaluation.assembly_evaluation.validate_test_score",		
+	},
+	"Quality Evaluation": {
+		"after_insert": "training.training.doctype.quality_evaluation.quality_evaluation.validate_test_score",		
+	},
+	"Selection Test": {
+		"after_insert": "training.training.doctype.selection_test.selection_test.validate_test_score",		
+	},
+	"Induction Training Assembly Area": {
+		"after_insert": "training.training.doctype.induction_training_assembly_area.induction_training_assembly_area.validate_test_score",		
+	}
+}
 
 # Scheduled Tasks
 # ---------------
